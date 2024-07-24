@@ -1,5 +1,13 @@
 # Single-Cell-Proteomics-data-processing-and-analysis
 
+      if (!requireNamespace("BiocManager"))
+      install.packages("BiocManager")
+      BiocManager::install("scp")
+      BiocManager::install(version = "devel")
+      BiocManager::install("remotes")
+      BiocManager::install("UCLouvain-CBIO/scp")
+
+
                
                library("scp")
                
