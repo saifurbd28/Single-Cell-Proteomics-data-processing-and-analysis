@@ -22,8 +22,10 @@ table(sampleAnnotation$SampleType)
 
 #Using readSCP, we combine both tables in a QFeatures object formatted as described above.
 
-scp <- readSCP(assayData = mqScpData,
 
+
+
+               scp <- readSCP(assayData = mqScpData,
                colData = sampleAnnotation,
                
                runCol = "Raw.file",
