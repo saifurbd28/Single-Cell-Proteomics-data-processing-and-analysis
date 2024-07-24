@@ -20,6 +20,9 @@ data("sampleAnnotation")
 
 table(sampleAnnotation$SampleType)
 
+#Using readSCP, we combine both tables in a QFeatures object formatted as described above.
 
-Blank    Carrier Macrophage   Monocyte  Reference     Unused 
-        19          3         20          5          3         14 
+scp <- readSCP(assayData = mqScpData,
+               colData = sampleAnnotation,
+               runCol = "Raw.file",
+               removeEmptyCols = TRUE)
