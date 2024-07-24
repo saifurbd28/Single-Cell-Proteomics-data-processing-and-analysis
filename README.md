@@ -88,4 +88,36 @@ CharacterList of length 4
                         Potential.contaminant != "+" &
                         !is.na(PIF) & PIF > 0.8)
 
+# Filtering option-2: Filter assays based on detected features
+
+
+                      dims(scp)
+                      keepAssay <- dims(scp)[1, ] > 150 # assays that have sufficient PSMs (> 150 rows)
+                      scp <- scp[, , keepAssay] # subset the scp object for the assays that meet the criterion
+
+  # Filtering option-3: Filter features based on SCP metrics
+
+
+                      table(colData(scp)[, "SampleType"])
+                      scp <- computeSCR(scp,
+                                        i = 1:3,
+                                        colvar = "SampleType",
+                                        carrierPattern = "Carrier",
+                                        samplePattern = "Macrophage|Monocyte",
+                                        sampleFUN = "mean",
+                                        rowDataName = "MeanSCR")
+
+                    rbindRowData(scp, i = 1:3) |>
+                      data.frame() |>
+                      ggplot(aes(x = MeanSCR)) +
+                      geom_histogram() +
+                      geom_vline(xintercept = c(1/200, 0.1),
+                                 lty = c(2, 1)) +
+                      scale_x_log10()
+
+
+                  scp <- filterFeatures(scp,
+                                        ~ !is.na(MeanSCR) &
+                                        MeanSCR < 0.1)
+  ![image](https://github.com/user-attachments/assets/fa46b8de-b74f-4738-b874-43d93a033c30)
 
