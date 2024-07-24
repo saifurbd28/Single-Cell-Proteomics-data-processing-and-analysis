@@ -31,3 +31,11 @@ table(sampleAnnotation$SampleType)
                runCol = "Raw.file",
                
                removeEmptyCols = TRUE)
+
+scp
+
+An instance of class QFeatures containing 4 assays:
+ [1] 190222S_LCA9_X_FP94BM: SingleCellExperiment with 395 rows and 11 columns 
+ [2] 190321S_LCA10_X_FP97_blank_01: SingleCellExperiment with 109 rows and 11 columns 
+ [3] 190321S_LCA10_X_FP97AG: SingleCellExperiment with 487 rows and 11 columns 
+ [4] 190914S_LCB3_X_16plex_Set_21: SingleCellExperiment with 370 rows and 16 columns 
