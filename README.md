@@ -13,12 +13,14 @@
 ## The first step is to read in the PSM quantification table  
 
 ## a dummy MaxQuant dataset (Tyanova, Temu, and Cox (2016)).
+               
+               data("mqScpData")
 
-data("mqScpData")
+               data("sampleAnnotation")
 
-# sample annotation
+                table(sampleAnnotation$SampleType)
 
-data("sampleAnnotation")
+
 
 table(sampleAnnotation$SampleType)
 
