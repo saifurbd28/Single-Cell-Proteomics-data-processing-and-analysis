@@ -6,21 +6,21 @@ library("ggplot2")
 
 library("dplyr")
 
-#Read in SCP data
+# Read in SCP data
 
-##The first step is to read in the PSM quantification table  
+## The first step is to read in the PSM quantification table  
 
 ## a dummy MaxQuant dataset (Tyanova, Temu, and Cox (2016)).
 
 data("mqScpData")
 
-#sample annotation
+# sample annotation
 
 data("sampleAnnotation")
 
 table(sampleAnnotation$SampleType)
 
-#Using readSCP, we combine both tables in a QFeatures object formatted as described above.
+# Using readSCP, we combine both tables in a QFeatures object formatted as described above.
 
 
 
